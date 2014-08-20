@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgcolor" >
+
+    <TextView
+        android:id="@+id/TextView08"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0C5687"
+        android:text="@string/kosci"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFD11C"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="30dp" >
+
+            <TableRow
+                android:id="@+id/TableRow05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <Button
+                    android:id="@+id/btnk100"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/przycisk"
+                    android:padding="20dp"
+                    android:text="@string/number"
+                    android:textColor="@color/yellow" />
+
+                <Button
+                    android:id="@+id/btnk50"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/przycisk"
+                    android:padding="20dp"
+                    android:text="@string/number"
+                    android:textColor="@color/yellow" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/TableRow06"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/TextView06"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="K100"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/yellow" />
+
+                <TextView
+                    android:id="@+id/TextView07"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="K50"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/yellow" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/TableRow03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <Button
+                    android:id="@+id/btnk20"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/przycisk"
+                    android:padding="20dp"
+                    android:text="@string/number"
+                    android:textColor="@color/yellow" />
+
+                <Button
+                    android:id="@+id/btnk12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/przycisk"
+                    android:padding="20dp"
+                    android:text="@string/number"
+                    android:textColor="@color/yellow" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/TableRow04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/TextView04"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="K20"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/yellow" />
+
+                <TextView
+                    android:id="@+id/TextView05"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="K12"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/yellow" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/TableRow02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <Button
+                    android:id="@+id/btnk10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/przycisk"
+                    android:padding="20dp"
+                    android:text="@string/number"
+                    android:textColor="@color/yellow" />
+
+                <Button
+                    android:id="@+id/btnk8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/przycisk"
+                    android:padding="20dp"
+                    android:text="@string/number"
+                    android:textColor="@color/yellow" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/TableRow01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/TextView02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="K10"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/yellow" />
+
+                <TextView
+                    android:id="@+id/TextView01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="K8"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/yellow" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <Button
+                    android:id="@+id/btnk6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/przycisk"
+                    android:padding="20dp"
+                    android:text="@string/number"
+                    android:textColor="@color/yellow" />
+
+                <Button
+                    android:id="@+id/btnk4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/przycisk"
+                    android:padding="20dp"
+                    android:text="@string/number"
+                    android:textColor="@color/yellow" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="K6"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/yellow" />
+
+                <TextView
+                    android:id="@+id/TextView03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="K4"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/yellow" />
+            </TableRow>
+        </TableLayout>
+
+    </ScrollView>
+
+</TableLayout>
