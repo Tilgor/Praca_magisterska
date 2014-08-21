@@ -16,5 +16,12 @@
     <string name="losuj">Losuj</string>
     <string name="lotto">Lotto</string>
     <string name="kosci">Kości</string>
+    <string name="execution_time">Execution time</string>
+    <string name="number_of_rows">number of rows:</string>
+   	<string name="Insert_button_1">Insert into 1_COLUMN_TABLE</string>
+   	<string name="Insert_button_2">Insert into 2_COLUMN_TABLE</string>
+   	<string name="Insert_button_3">Insert into 5_COLUMN_TABLE</string>
+    
+    <dimen name="buttons_text_size">12sp</dimen>
 
 </resources>
