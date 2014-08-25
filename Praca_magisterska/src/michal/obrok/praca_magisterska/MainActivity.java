@@ -3,8 +3,10 @@ package michal.obrok.praca_magisterska;
 import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
+import android.support.v7.internal.view.menu.MenuView.ItemView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.content.ClipData.Item;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 
@@ -46,6 +49,21 @@ public class MainActivity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+        
+        Table_interface tb = new Table_with_1_column(this);
+        tb.create_table();
+        tb = new Table_with_2_columns(this);
+        tb.create_table();
+        tb = new Table_with_5_columns(this);
+        tb.create_table();
+        
+        
+//       ItemView chosed_table =  (ItemView)findViewById(R.id.action_example);
+//       chosed_table.setTitle("test");
+        
+//        NavigationDrawerFragment navigation_drawer_obj = (NavigationDrawerFragment)getSupportFragmentManager().
+//        findFragmentById(R.id.navigation_drawer);
+//        navigation_drawer_obj.setTitle_text("test");
     }
 
     @Override
@@ -56,12 +74,30 @@ public class MainActivity extends ActionBarActivity
         switch (position){
         case 0:
         	fragmentManager.beginTransaction().
-        	replace(R.id.container, new Inserts()).
+        	replace(R.id.container, new managment()).
         	commit();
         	break;
         case 1:
         	fragmentManager.beginTransaction().
+        	replace(R.id.container, new Inserts()).
+        	commit();
+//          NavigationDrawerFragment navigation_drawer_obj = (NavigationDrawerFragment)getSupportFragmentManager().
+//          findFragmentById(R.id.navigation_drawer);
+//          navigation_drawer_obj.setTitle_text("test");
+        	break;
+        case 2:
+        	fragmentManager.beginTransaction().
+        	replace(R.id.container, new updates()).
+        	commit();
+        	break;
+        case 3:
+        	fragmentManager.beginTransaction().
         	replace(R.id.container, new selects()).
+        	commit();
+        	break;
+        case 4:
+        	fragmentManager.beginTransaction().
+        	replace(R.id.container, new delete()).
         	commit();
         	break;
         }

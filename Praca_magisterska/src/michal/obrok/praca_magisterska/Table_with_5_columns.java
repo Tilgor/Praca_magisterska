@@ -10,80 +10,65 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 
-public class Table_with_1_column extends SQLiteOpenHelper implements Table_interface {
+public class Table_with_5_columns extends SQLiteOpenHelper implements Table_interface {
 
-	private final String table_name = "TABLE_WITH_1_COLUMN";
+	private final String table_name = "TABLE_WITH_5_COLUMNS";
 
-	public Table_with_1_column(Context context) {
+	public Table_with_5_columns(Context context) {
 		super(context, "database.db", null, 1);
 	}
-
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#onCreate(android.database.sqlite.SQLiteDatabase)
-	 */
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 
 		db.execSQL("CREATE TABLE if not exists " + table_name + "("
-				+ "integer1 integer);");
+				+ "integer1 integer primary key autoincrement, integer2 integer, integer3 integer, integer4 integer, integer5 integer);");
 	}
-
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#onUpgrade(android.database.sqlite.SQLiteDatabase, int, int)
-	 */
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 	}
 
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#create_table()
-	 */
-	@Override
 	public void create_table() {
 		SQLiteDatabase db = getWritableDatabase();
 		db.execSQL("CREATE TABLE IF NOT EXISTS " + table_name + "("
-				+ "integer1 integer);");
+				+ "integer1 integer primary key autoincrement, integer2 integer, integer3 integer, integer4 integer, integer5 integer);");
 	}
 
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#simple_insert(int)
-	 */
-	@Override
 	public void simple_insert(int number) {
 		SQLiteDatabase db = getWritableDatabase();
 		ContentValues values = new ContentValues();
-		values.put("integer1", number);
-		db.insertOrThrow("TABLE_WITH_1_COLUMN", null, values);
+		values.put("integer2", number);
+		values.put("integer3", number);
+		values.put("integer4", number);
+		values.put("integer5", number);
+		db.insertOrThrow(table_name, null, values);
 	}
 
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#simple_insert_rows(int)
-	 */
-	@Override
 	public long simple_insert_rows(int row_count) {
 		SQLiteDatabase db = getWritableDatabase();
 		long startTime = System.currentTimeMillis();
 		for (int i = 0; i < row_count; i++) {
 			ContentValues values = new ContentValues();
-			values.put("integer1", i);
+			values.put("integer2", i);
+			values.put("integer3", i);
+			values.put("integer4",i);
+			values.put("integer5", i);
 			db.insert(table_name, null, values);
 		}
 		return System.currentTimeMillis() - startTime;
 	}
 
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#simple_insert_rows_transaction(int)
-	 */
-	@Override
 	public long simple_insert_rows_transaction(int row_count) {
 		SQLiteDatabase db = getWritableDatabase();
 		long startTime = System.currentTimeMillis();
 		db.beginTransaction();
 		for (int i = 0; i < row_count; i++) {
 			ContentValues values = new ContentValues();
-			values.put("integer1", i);
+			values.put("integer2", i);
+			values.put("integer3", i);
+			values.put("integer4",i);
+			values.put("integer5", i);
 			db.insert(table_name, null, values);
 		}
 		db.setTransactionSuccessful();
@@ -91,19 +76,18 @@ public class Table_with_1_column extends SQLiteOpenHelper implements Table_inter
 		return System.currentTimeMillis() - startTime;
 	}
 
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#bulk_insert_rows_transaction(int)
-	 */
-	@Override
 	public long bulk_insert_rows_transaction(int row_count) {
 		SQLiteDatabase db = getWritableDatabase();
-		String sql = "INSERT INTO " + table_name + " VALUES" + " (?);";
+		String sql = "INSERT INTO " + table_name + " (integer2,integer3,integer4,integer5) VALUES" + " (?,?,?,?);";
 		SQLiteStatement statement = db.compileStatement(sql);
 		long startTime = System.currentTimeMillis();
 		db.beginTransaction();
 		for (int i = 0; i < row_count; i++) {
 			statement.clearBindings();
 			statement.bindLong(1, i);
+			statement.bindLong(2, i);
+			statement.bindLong(3, i);
+			statement.bindLong(4, i);
 			statement.execute();
 		}
 		db.setTransactionSuccessful();
@@ -111,48 +95,42 @@ public class Table_with_1_column extends SQLiteOpenHelper implements Table_inter
 		return System.currentTimeMillis() - startTime;
 	}
 
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#simple_update_rows(int)
-	 */
-	@Override
 	public long simple_update_rows(int row_count) {
 		SQLiteDatabase db = getWritableDatabase();
 		long startTime = System.currentTimeMillis();
 		for (int i = 0; i < row_count; i++) {
 			ContentValues values = new ContentValues();
-			values.put("integer1", (i + row_count));
+			values.put("integer2", (i + row_count));
+			values.put("integer3", (i + row_count));
+			values.put("integer4", (i + row_count));
+			values.put("integer5", (i + row_count));
 			String[] args = { "" + i };
-			db.update(table_name, values, "integer1=?", args);
+			db.update(table_name, values, "integer2=?", args);
 		}
 		return System.currentTimeMillis() - startTime;
 	}
 
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#simple_update_rows_transaction(int)
-	 */
-	@Override
 	public long simple_update_rows_transaction(int row_count) {
 		SQLiteDatabase db = getWritableDatabase();
 		long startTime = System.currentTimeMillis();
 		db.beginTransaction();
 		for (int i = 0; i < row_count; i++) {
 			ContentValues values = new ContentValues();
-			values.put("integer1", (i + row_count));
+			values.put("integer2", (i + row_count));
+			values.put("integer3", (i + row_count));
+			values.put("integer4", (i + row_count));
+			values.put("integer5", (i + row_count));
 			String[] args = { "" + i };
-			db.update(table_name, values, "integer1=?", args);
+			db.update(table_name, values, "integer2=?", args);
 		}
 		db.setTransactionSuccessful();
 		db.endTransaction();
 		return System.currentTimeMillis() - startTime;
 	}
 
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#simple_select_rows(int)
-	 */
-	@Override
 	public long simple_select_rows(int row_count) {
 		SQLiteDatabase db = getReadableDatabase();
-		String[] columns = { "integer1" };
+		String[] columns = { "integer1","integer2","integer3","integer4","integer5" };
 		Cursor cursor = db.query(table_name, columns, null, null, null, null,
 				null, "" + row_count);
 
@@ -164,13 +142,9 @@ public class Table_with_1_column extends SQLiteOpenHelper implements Table_inter
 		return System.currentTimeMillis() - startTime;
 	}
 	
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#simple_select_rows_ordered(int)
-	 */
-	@Override
 	public long simple_select_rows_ordered(int row_count) {
 		SQLiteDatabase db = getReadableDatabase();
-		String[] columns = { "integer1" };
+		String[] columns = { "integer1","integer2","integer3","integer4","integer5" };
 		Cursor cursor = db.query(table_name, columns, null, null, null, "integer1 desc",
 				null, "" + row_count);
 
@@ -182,28 +156,16 @@ public class Table_with_1_column extends SQLiteOpenHelper implements Table_inter
 		return System.currentTimeMillis() - startTime;
 	}
 	
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#create_index(java.lang.String, java.lang.String)
-	 */
-	@Override
 	public void create_index(String index_name, String column_name){
 		SQLiteDatabase db = getWritableDatabase();
 		db.execSQL("create index "+index_name+" on "+table_name +"(" +column_name+")");
 	}
 	
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#drop_index(java.lang.String)
-	 */
-	@Override
 	public void drop_index(String index_name){
 		SQLiteDatabase db = getWritableDatabase();
 		db.execSQL("drop index "+index_name);
 	}
 
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#simple_delete_rows(int)
-	 */
-	@Override
 	public long simple_delete_rows(int row_count) {
 		SQLiteDatabase db = getWritableDatabase();
 		long startTime = System.currentTimeMillis();
@@ -214,10 +176,6 @@ public class Table_with_1_column extends SQLiteOpenHelper implements Table_inter
 		return System.currentTimeMillis() - startTime;
 	}
 
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#simple_delete_rows_transaction(int)
-	 */
-	@Override
 	public long simple_delete_rows_transaction(int row_count) {
 		SQLiteDatabase db = getWritableDatabase();
 		long startTime = System.currentTimeMillis();
@@ -231,20 +189,12 @@ public class Table_with_1_column extends SQLiteOpenHelper implements Table_inter
 		return System.currentTimeMillis() - startTime;
 	}
 
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#simple_delete(int)
-	 */
-	@Override
 	public void simple_delete(int id) {
 		SQLiteDatabase db = getWritableDatabase();
 		String[] argument = { "" + id };
 		db.delete(table_name, "integer1=?", argument);
 	}
 
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#simple_update(int, int)
-	 */
-	@Override
 	public void simple_update(int old_pk, int new_pk) {
 		SQLiteDatabase db = getWritableDatabase();
 		ContentValues values = new ContentValues();
@@ -253,10 +203,6 @@ public class Table_with_1_column extends SQLiteOpenHelper implements Table_inter
 		db.update(table_name, values, "integer1=?", args);
 	}
 
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#get_pk(int)
-	 */
-	@Override
 	public int get_pk(int id) {
 		int integer = 0;
 		SQLiteDatabase db = getWritableDatabase();
@@ -272,10 +218,6 @@ public class Table_with_1_column extends SQLiteOpenHelper implements Table_inter
 
 	}
 
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#getAll()
-	 */
-	@Override
 	public List<Integer> getAll() {
 		List<Integer> values = new LinkedList<Integer>();
 		String[] columns = { "integer1" };
@@ -290,10 +232,6 @@ public class Table_with_1_column extends SQLiteOpenHelper implements Table_inter
 		return values;
 	}
 
-	/* (non-Javadoc)
-	 * @see michal.obrok.praca_magisterska.Table_interface#truncate_table()
-	 */
-	@Override
 	public void truncate_table() {
 		SQLiteDatabase db = getWritableDatabase();
 		db.execSQL("DROP TABLE IF EXISTS " + table_name + ";");

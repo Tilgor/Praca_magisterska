@@ -26,7 +26,7 @@ public class updates extends Fragment {
 
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		mainView = inflater.inflate(R.layout.inserts, container, false);
+		mainView = inflater.inflate(R.layout.updates, container, false);
 
 
 

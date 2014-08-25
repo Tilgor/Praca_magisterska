@@ -25,10 +25,18 @@
    	<string name="Insert_button_2">Simple insert transaction</string>
    	<string name="Insert_button_3">Bulk insert transaction</string>
    	<string name="Insert_button_4"></string>
-   	<string name="Select_button_1">Select from 1_COLUMN_TABLE</string>
-   	<string name="Select_button_2">Select from 2_COLUMN_TABLE</string>
-   	<string name="Select_button_3">Select from 5_COLUMN_TABLE</string>
-    
-    
+   	<string name="Select_button_1">Simple select</string>
+   	<string name="Select_button_2">Select with order by</string>
+   	<string name="Select_button_3">Create index</string>
+   	<string name="Select_button_4">Drop index</string>
+   	<string name="Managment_button_1">Set active: TABLE_WITH_1_COLUMN</string>
+   	<string name="Managment_button_2">Set active: TABLE_WITH_2_COLUMNS</string>
+   	<string name="Managment_button_3">Set active: TABLE_WITH_5_COLUMNS</string>
+   	<string name="Managment_button_4">Set active: SIMPLE_RELATION_TABLES</string>
+   	<string name="Managment_button_5">Truncate selected table</string>
+   	<string name="Update_button_1">Simple update</string>
+    <string name="Update_button_2">Simple update in transaction</string>
+    <string name="Delete_button_1">Simple delete</string>
+    <string name="Delete_button_2">Simple delete in transaction</string>
 
 </resources>

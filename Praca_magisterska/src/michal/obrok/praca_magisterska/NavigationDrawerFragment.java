@@ -3,6 +3,7 @@ package michal.obrok.praca_magisterska;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
+import android.support.v7.internal.view.menu.MenuView.ItemView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
@@ -54,6 +55,7 @@ public class NavigationDrawerFragment extends Fragment {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerListView;
     private View mFragmentContainerView;
+    private Menu MenuView;
 
     private int mCurrentSelectedPosition = 0;
     private boolean mFromSavedInstanceState;
@@ -110,9 +112,15 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_section5),
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
+
         return mDrawerListView;
     }
 
+    public void setTitle_text(String text){
+    	
+    	 MenuView.getItem(0).setTitle(text);
+    }
+    
     public boolean isDrawerOpen() {
         return mDrawerLayout != null && mDrawerLayout.isDrawerOpen(mFragmentContainerView);
     }
@@ -242,6 +250,8 @@ public class NavigationDrawerFragment extends Fragment {
             showGlobalContextActionBar();
         }
         super.onCreateOptionsMenu(menu, inflater);
+        menu.getItem(0).setTitle(global_settings.chosed_table.toString());
+        MenuView = menu;
     }
 
     @Override
@@ -251,10 +261,13 @@ public class NavigationDrawerFragment extends Fragment {
         }
 
         if (item.getItemId() == R.id.action_example) {
-            Table_with_1_column tb1 = new Table_with_1_column(getActivity());
-            tb1.truncate_table();
-            
-            Toast.makeText(getActivity(), "Tables truncated.", Toast.LENGTH_SHORT).show();
+//        	ItemView text = (ItemView)mDrawerListView.findViewById(R.id.action_example);
+//        	text.setTitle(arg0)
+        	
+//            Table_with_1_column tb1 = new Table_with_1_column(getActivity());
+//            tb1.truncate_table();
+//            
+//            Toast.makeText(getActivity(), "Tables truncated.", Toast.LENGTH_SHORT).show();
             return true;
         }
 
