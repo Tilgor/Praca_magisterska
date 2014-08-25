@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -58,7 +59,14 @@ public class MainActivity extends ActionBarActivity
         	replace(R.id.container, new Inserts()).
         	commit();
         	break;
+        case 1:
+        	fragmentManager.beginTransaction().
+        	replace(R.id.container, new selects()).
+        	commit();
+        	break;
         }
+
+        	
         /*
         fragmentManager.beginTransaction()
                 .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
@@ -78,6 +86,12 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 3:
                 mTitle = getString(R.string.title_section3);
+                break;
+            case 4:
+                mTitle = getString(R.string.title_section4);
+                break;
+            case 5:
+                mTitle = getString(R.string.title_section5);
                 break;
         }
     }
@@ -114,6 +128,11 @@ public class MainActivity extends ActionBarActivity
         }
         return super.onOptionsItemSelected(item);
     }
+    
+    
+	
+	
+	
 
     /**
      * A placeholder fragment containing a simple view.

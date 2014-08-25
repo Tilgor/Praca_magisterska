@@ -2,12 +2,14 @@
 <resources>
 
     <string name="app_name">Praca_magisterska</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section1">Management</string>
+    <string name="title_section2">Inserts</string>
+    <string name="title_section3">Updates</string>
+    <string name="title_section4">Selects</string>
+    <string name="title_section5">Deletes</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_example">Example action</string>
+    <string name="action_example">Truncate all</string>
     
     <string name="action_settings">Settings</string>
     <string name="menu_settings">Settings</string>
@@ -16,12 +18,17 @@
     <string name="losuj">Losuj</string>
     <string name="lotto">Lotto</string>
     <string name="kosci">Kości</string>
-    <string name="execution_time">Execution time</string>
-    <string name="number_of_rows">number of rows:</string>
-   	<string name="Insert_button_1">Insert into 1_COLUMN_TABLE</string>
-   	<string name="Insert_button_2">Insert into 2_COLUMN_TABLE</string>
-   	<string name="Insert_button_3">Insert into 5_COLUMN_TABLE</string>
+    <string name="execution_time">Execution time:</string>
+    <string name="number_of_rows">Number of rows:</string>
+    <string name="empty"></string>
+   	<string name="Insert_button_1">Simple insert</string>
+   	<string name="Insert_button_2">Simple insert transaction</string>
+   	<string name="Insert_button_3">Bulk insert transaction</string>
+   	<string name="Insert_button_4"></string>
+   	<string name="Select_button_1">Select from 1_COLUMN_TABLE</string>
+   	<string name="Select_button_2">Select from 2_COLUMN_TABLE</string>
+   	<string name="Select_button_3">Select from 5_COLUMN_TABLE</string>
     
-    <dimen name="buttons_text_size">12sp</dimen>
+    
 
 </resources>

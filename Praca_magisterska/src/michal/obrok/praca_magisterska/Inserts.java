@@ -6,6 +6,9 @@ import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.database.DataSetObserver;
+import android.view.View.OnClickListener;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -16,24 +19,56 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.NumberPicker;
+import android.widget.Toast;
 
-public class Inserts extends Fragment {
+public class Inserts extends Fragment  implements OnClickListener {
 	
 	private View mainView;
+	private Button insert_button_table_1_1;
 	
 
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mainView = inflater.inflate(R.layout.inserts, container, false);
-
-
-
-		
+		initialize();
+		listeners();
         return mainView;
-        
-
 }
+	private void initialize() {
+		insert_button_table_1_1=(Button)mainView.findViewById(R.id.button01);
+		
+	}
+	
+	private void listeners() {
+		insert_button_table_1_1.setOnClickListener(this);
+	
+	}
+	
+	@Override
+	public void onClick(View v) {
+		if (v==insert_button_table_1_1)
+		{
+			Table_with_1_column tb1 = new Table_with_1_column(getActivity());
+			TextView result = (TextView)mainView.findViewById(R.id.Result);
+			EditText rowcount_text = (EditText)mainView.findViewById(R.id.editText1);
+			if(rowcount_text != null && !rowcount_text.getText().toString().equals("")){
+				int rowcount = 0;
+				rowcount = Integer.parseInt(rowcount_text.getText().toString());
+				result.setText(tb1.simple_insert_rows_transaction(rowcount)+"ms");
+			}
+		}
+		else if(v==insert_button_table_1_1)
+		{
+			
+		}
+
+	}
+
 
 }
