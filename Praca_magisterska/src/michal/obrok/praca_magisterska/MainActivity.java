@@ -56,6 +56,8 @@ public class MainActivity extends ActionBarActivity
         tb.create_table();
         tb = new Table_with_5_columns(this);
         tb.create_table();
+        tb = new Simple_relation_tables(this);
+        tb.create_table();
         
         
 //       ItemView chosed_table =  (ItemView)findViewById(R.id.action_example);

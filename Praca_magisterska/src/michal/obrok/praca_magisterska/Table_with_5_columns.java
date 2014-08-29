@@ -145,25 +145,28 @@ public class Table_with_5_columns extends SQLiteOpenHelper implements Table_inte
 	public long simple_select_rows_ordered(int row_count) {
 		SQLiteDatabase db = getReadableDatabase();
 		String[] columns = { "integer1","integer2","integer3","integer4","integer5" };
-		Cursor cursor = db.query(table_name, columns, null, null, null, "integer1 desc",
-				null, "" + row_count);
+		Cursor cursor = db.query(table_name, columns, null, null, null,null, "integer1 desc", "" + row_count);
 
 		long startTime = System.currentTimeMillis();
 		while (cursor.moveToNext()) {
-			int number1;
+			int number1,number2,number3,number4,number5;
 			number1 = cursor.getInt(0);
+			number2 = cursor.getInt(1);
+			number3 = cursor.getInt(2);
+			number4 = cursor.getInt(3);
+			number5 = cursor.getInt(4);
 		}
 		return System.currentTimeMillis() - startTime;
 	}
 	
 	public void create_index(String index_name, String column_name){
 		SQLiteDatabase db = getWritableDatabase();
-		db.execSQL("create index "+index_name+" on "+table_name +"(" +column_name+")");
+		db.execSQL("create index if not exists "+index_name+table_name+" on "+table_name +"(" +column_name+")");
 	}
 	
 	public void drop_index(String index_name){
 		SQLiteDatabase db = getWritableDatabase();
-		db.execSQL("drop index "+index_name);
+		db.execSQL("drop index if exists "+index_name+table_name);
 	}
 
 	public long simple_delete_rows(int row_count) {

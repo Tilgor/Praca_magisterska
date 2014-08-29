@@ -67,7 +67,12 @@ public class managment extends Fragment implements OnClickListener {
 				tb = new Table_with_2_columns(getActivity());
 			else if(global_settings.chosed_table==table_name.TABLE_WITH_5_COLUMNS)
 				tb = new Table_with_5_columns(getActivity());
+			else if(global_settings.chosed_table==table_name.SIMPLE_RELATION_TABLES)
+				tb = new Simple_relation_tables(getActivity());
 			tb.truncate_table();
 	}
+
+		NavigationDrawerFragment navigation_drawer_obj = (NavigationDrawerFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
+		navigation_drawer_obj.setTitle_text(global_settings.chosed_table.toString());
 	}
 }

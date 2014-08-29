@@ -59,6 +59,8 @@ public class selects extends Fragment implements OnClickListener {
 			tb = new Table_with_2_columns(getActivity());
 		else if(global_settings.chosed_table==table_name.TABLE_WITH_5_COLUMNS)
 			tb = new Table_with_5_columns(getActivity());
+		else if(global_settings.chosed_table==table_name.SIMPLE_RELATION_TABLES)
+			tb = new Simple_relation_tables(getActivity());
 		
 		if (v==button_01)
 		{

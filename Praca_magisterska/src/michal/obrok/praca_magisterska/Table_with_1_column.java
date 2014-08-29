@@ -171,8 +171,7 @@ public class Table_with_1_column extends SQLiteOpenHelper implements Table_inter
 	public long simple_select_rows_ordered(int row_count) {
 		SQLiteDatabase db = getReadableDatabase();
 		String[] columns = { "integer1" };
-		Cursor cursor = db.query(table_name, columns, null, null, null, "integer1 desc",
-				null, "" + row_count);
+		Cursor cursor = db.query(table_name, columns, null, null, null,null, "integer1 desc", "" + row_count);
 
 		long startTime = System.currentTimeMillis();
 		while (cursor.moveToNext()) {
@@ -188,7 +187,7 @@ public class Table_with_1_column extends SQLiteOpenHelper implements Table_inter
 	@Override
 	public void create_index(String index_name, String column_name){
 		SQLiteDatabase db = getWritableDatabase();
-		db.execSQL("create index "+index_name+" on "+table_name +"(" +column_name+")");
+		db.execSQL("create index if not exists "+index_name+table_name+" on "+table_name +"(" +column_name+")");
 	}
 	
 	/* (non-Javadoc)
@@ -197,7 +196,7 @@ public class Table_with_1_column extends SQLiteOpenHelper implements Table_inter
 	@Override
 	public void drop_index(String index_name){
 		SQLiteDatabase db = getWritableDatabase();
-		db.execSQL("drop index "+index_name);
+		db.execSQL("drop index if exists "+index_name+table_name);
 	}
 
 	/* (non-Javadoc)
